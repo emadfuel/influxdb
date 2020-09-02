@@ -509,6 +509,8 @@ jobs:
       - run:
           name: "Build release"
           command: make gershon-release
+     - store_artifacts:
+         path: /go/src/github.com/influxdata/influxdb/dist
 
 workflows:
   version: 2
