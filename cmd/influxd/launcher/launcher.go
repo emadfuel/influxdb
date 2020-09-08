@@ -355,7 +355,7 @@ func launcherOpts(l *Launcher) []cli.Opt {
 			DestP:   &l.memoryBytesQuotaPerQuery,
 			Flag:    "query-memory-bytes",
 			//Default: math.MaxInt64,
-			Default: maxInt 
+			Default: maxInt, 
 			Desc:    "maximum number of bytes a query is allowed to use at any given time. This must be greater or equal to query-initial-memory-bytes",
 		},
 		{
