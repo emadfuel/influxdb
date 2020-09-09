@@ -92,7 +92,7 @@ const (
 	LogTracing = "log"
 	// JaegerTracing enables tracing via the Jaeger client library
 	JaegerTracing = "jaeger"
-	maxInt = 1<<uint(strconv.IntSize-1) - 1
+	maxInt        = 1<<uint(strconv.IntSize-1) - 1
 )
 
 func NewInfluxdCommand(ctx context.Context, subCommands ...*cobra.Command) *cobra.Command {
@@ -352,10 +352,10 @@ func launcherOpts(l *Launcher) []cli.Opt {
 			Desc:    "the initial number of bytes allocated for a query when it is started. If this is unset, then query-memory-bytes will be used",
 		},
 		{
-			DestP:   &l.memoryBytesQuotaPerQuery,
-			Flag:    "query-memory-bytes",
+			DestP: &l.memoryBytesQuotaPerQuery,
+			Flag:  "query-memory-bytes",
 			//Default: math.MaxInt64,
-			Default: maxInt, 
+			Default: maxInt,
 			Desc:    "maximum number of bytes a query is allowed to use at any given time. This must be greater or equal to query-initial-memory-bytes",
 		},
 		{
