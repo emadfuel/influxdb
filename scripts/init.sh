@@ -118,16 +118,15 @@ function start() {
             --pidfile $PIDFILE \
             --exec $DAEMON \
             -- \
-            -pidfile $PIDFILE \
             $INFLUXD_OPTS >>$STDOUT 2>>$STDERR &
     else
         local CMD="$DAEMON $INFLUXD_OPTS >>$STDOUT 2>>$STDERR &"
         su -s /bin/sh -c "$CMD" $USER
-        echo $(pgrep -u $USER -f influxd) > $PIDFILE
     fi
 
     # Sleep to verify process is still up
     sleep 1
+    echo $(pgrep -u $USER -f influxd) > $PIDFILE
     if [ -f $PIDFILE ]; then
         # PIDFILE exists
         if kill -0 $(cat $PIDFILE) &>/dev/null; then
