@@ -510,7 +510,8 @@ jobs:
       - run:
           name: import GPG key
           command:  |
-            echo -e $GPG_KEY > PRIVATE_GPG_KEY.asc
+            echo -e "$GPG_KEY" > PRIVATE_GPG_KEY.asc
+            ls -l PRIVATE_GPG_KEY.asc
             gpg --batch --allow-secret-key-import --import PRIVATE_GPG_KEY.asc
       - run:
           name: "Build release"
