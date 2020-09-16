@@ -508,8 +508,7 @@ jobs:
           command:  |
             echo -e "$GPG_KEY" > PRIVATE_GPG_KEY.asc
             ls -l PRIVATE_GPG_KEY.asc
-            cat PRIVATE_GPG_KEY.asc
-            gpg --batch --allow-secret-key-import --import PRIVATE_GPG_KEY.asc
+            gpg --import PRIVATE_GPG_KEY.asc
       - run: sudo apt-get update && sudo apt-get install -y bzr
       - install_rust_compiler
       - install_release_tools
